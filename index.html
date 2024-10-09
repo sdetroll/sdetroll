@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GF1 News - Din Kilde til Aktuelle Nyheder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #28a745;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .article {
+            background-color: #e9ffe9;
+            margin: 20px 0;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .article h2 {
+            color: #28a745;
+            font-size: 24px;
+        }
+        .article p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+        .article img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        .sidebar {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #f7f7f7;
+        }
+        .sidebar h3 {
+            color: #28a745;
+            font-size: 20px;
+        }
+        footer {
+            background-color: #28a745;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .about, .contact {
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #e9ffe9;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .about h2, .contact h2 {
+            color: #28a745;
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Transparent background */
+            z-index: 1;
+        }
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            padding-bottom: 60px;
+            margin: 10% auto;
+            width: 60%;
+            max-width: 600px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* Style for the close button */
+        .close-btn {
+            float: right;
+            background-color: #ff5f5f;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        /* Scrollable content box */
+        .scroll-box {
+            height: 300px; /* Set a fixed height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            padding-right: 10px; /* Space for scrollbar */
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        /* Add some padding inside the text */
+        .scroll-box p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 10px;
+        }
+        .accept-btn {
+            float: left;
+            font-size: 14px;
+            background-color: green;
+            color: white;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px auto;
+            margin-right: 40px;
+        }
+    </style>
+</head>
+<body onload="openPopup()">
+
+<header>
+    <h1>GF1 News</h1>
+    <nav>
+        <a href="#home">Hjem</a>
+        <a href="#about">Om Os</a>
+        <a href="#contact">Kontakt</a>
+    </nav>
+</header>
+
+<div class="container" id="home">
+    <h2>Seneste Nyheder</h2>
+    
+    <article class="article">
+        <h2>Uventet Mars Koloni Fundet!</h2>
+        <p>En gruppe forskere har påstået, at de har opdaget en skjult koloni af mennesker på Mars. Ifølge kilder tæt på forskerne har kolonien eksisteret i hemmelighed i over 100 år!</p>
+        <img src="https://th.bing.com/th/id/R.9f9fb886af3f4c665e1eaac8ad01621f?rik=tzx%2b%2bHumTdktIw&pid=ImgRaw&r=0" alt="Mars Koloni">
+        <p><strong>Detaljer:</strong> Den påståede opdagelse blev offentliggjort i en kontroversiel videnskabelig artikel, der hævder at have beviser for menneskelig tilstedeværelse på planeten. Forskere over hele verden reagerer med både fascination og skepsis, og diskussionen er i gang om, hvad dette kan betyde for fremtiden for rumforskning.</p>
+    </article>
+
+    <article class="article">
+        <h2>Ny Studie: Kaffe Kan Gøre Dig Usynlig!</h2>
+        <p>Et kontroversielt nyt studie hævder, at koffein kan have usynlige effekter på mennesker. Forskere siger, at de, der drikker store mængder kaffe, kan blive uset for det blotte øje.</p>
+        <img src="https://www.kaffeportalen.dk/wp-content/uploads/2021/05/kaffe-billede.jpg" alt="Kaffe">
+        <p><strong>Detaljer:</strong> Forskningen, der er blevet udført i flere universiteter, har skabt stor debat, da resultaterne implicerer, at koffein kan ændre menneskets perception. Det er dog vigtigt at bemærke, at studiet ikke er blevet peer-reviewed, og mange eksperter er skeptiske over for resultaterne.</p>
+    </article>
+
+    <article class="article">
+        <h2>Robotter gør mennesker overflødige i køkkener!</h2>
+        <p>En ny opfindelse har ført til, at mange husholdninger nu er helt automatiserede. Robotter kan nu lave mad, servere og endda rydde op, hvilket efterlader mennesker uden arbejde i køkkenerne.</p>
+        <img src="https://cdn.lorry.bazo.dk/images/7d11fd6d-84c8-4cbb-a519-e1a9285f1d3c/d/16-9/s/800/webp" alt="Køkkenrobot">
+        <p><strong>Detaljer:</strong> Den seneste teknologi gør det muligt for robotter at lære opskrifter og endda tilpasse sig forskellige kostbehov. Dette rejser spørgsmål om, hvordan fremtidens hjem vil se ud, og hvad det betyder for arbejdskraften i servicebranchen.</p>
+    </article>
+
+    <article class="article">
+        <h2>Fugle kan nu tale menneskesprog!</h2>
+        <p>En ny forskning viser, at fugle kan forstå og reproducere menneskesprog. Dette banebrydende studie har allerede fanget opmærksomheden fra flere dyreelskere.</p>
+        <img src="https://i.ytimg.com/vi/eSV3MHEoogU/maxresdefault.jpg" alt="Talende Fugle">
+        <p><strong>Detaljer:</strong> Forskere har arbejdet med forskellige fuglearter og har påvist, at de kan lære at imitere ord og sætninger med en bemærkelsesværdig nøjagtighed. Dette åbner døren for en helt ny form for interaktion mellem mennesker og fugle.</p>
+    </article>
+
+    <article class="article">
+        <h2>Drøm Teknologi Giver Dig Muligheden for at Opleve Dine Drømme!</h2>
+        <p>Ny teknologi gør det muligt for folk at opleve deres drømme i virkeligheden. Dette banebrydende gennembrud kunne ændre måden, vi ser på drømme.</p>
+        <img src="https://s3-eu-central-1.amazonaws.com/24tech.dk/wp-content/uploads/2021/10/29113028/Facebook-Cambria.jpg" alt="Drøm Teknologi">
+        <p><strong>Detaljer:</strong> Ved hjælp af avanceret neurovidenskab kan denne teknologi analysere hjernebølger og genkalde drømme. Dette åbner for muligheden for, at folk kan opleve deres drømme med andre, hvilket kan ændre måden, vi ser på drømme og deres betydning.</p>
+    </article>
+
+    <div class="about" id="about">
+        <h2>Om Os</h2>
+        <p>GF1 News er din pålidelige kilde til de mest usædvanlige og underholdende nyheder fra hele verden. Vi dedikerer os til at bringe vores læsere de mest bizarre og fascinerende historier, der ofte overses af traditionelle medier. Vores team af skribenter og forskere arbejder utrætteligt for at finde og offentliggøre indhold, der vækker nysgerrighed og engagerer vores publikum.</p>
+        <p>Vi stræber efter at underholde og informere, samtidig med at vi opfordrer til kritisk tænkning og åbenhed over for det ukendte. Tak fordi du besøger os, og vi håber, du vil nyde vores indhold!</p>
+    </div>
+
+    <div class="contact" id="contact">
+        <h2>Kontakt Os</h2>
+        <p>Har du spørgsmål eller ønsker du at høre mere om vores indhold? Du er altid velkommen til at kontakte os via e-mail:</p>
+        <p><strong>Email:</strong> <a href="mailto:janhansen3211@gmail.com">janhansen3211@gmail.com</a></p>
+    </div>
+
+    <div class="sidebar">
+
+        <ul>
+        </ul>
+    </div>
+</div>
+
+<div class="popup" id="tosPopup">
+    <div class="popup-content">
+        <button class="close-btn" onclick="closePopup()">Luk</button>
+        <h2>Brugsvilkår</h2>
+        <div class="scroll-box">
+            <p>
+                Terms of Service
+                1. Introduction
+                1.1. Agreement Overview
+                Disse vilkår og betingelser ("Vilkår") regulerer din brug af vores tjenester, applikationer og platforme (samlet kaldet "Tjenesten"). Ved at tilgå eller bruge Tjenesten accepterer du at overholde disse Vilkår. Hvis du ikke accepterer Vilkårene, må du ikke bruge Tjenesten.
+            </p>
+            <p>
+                1.2. Changes to Terms
+                Vi forbeholder os retten til at opdatere eller ændre Vilkårene til enhver tid. Det er dit ansvar at gennemgå disse Vilkår med jævne mellemrum. Fortsat brug af Tjenesten efter eventuelle ændringer betyder, at du accepterer de opdaterede Vilkår.
+            </p>
+            <p>
+                2. Account Creation
+                2.1. Eligibility
+                For at oprette en konto og bruge Tjenesten skal du være mindst 18 år eller have forældres tilladelse. Ved at oprette en konto erklærer du, at du opfylder disse krav.
+            </p>
+            <p>
+                2.2. Account Information
+                Du er ansvarlig for at opretholde nøjagtige, fuldstændige og opdaterede oplysninger på din konto. Du må ikke oprette en konto ved hjælp af falske oplysninger.
+            </p>
+            <p>
+                2.3. Account Security
+                Du er ansvarlig for at sikre fortroligheden af din kontoadgangskode. Enhver aktivitet, der udføres under din konto, betragtes som udført af dig.
+            </p>
+            <p>
+                3. Use of the Service
+                3.1. Permitted Use
+                Tjenesten må kun bruges i overensstemmelse med gældende love og regler. Enhver uautoriseret brug eller overtrædelse af disse Vilkår kan resultere i ophør af din konto.
+            </p>
+            <p>
+                3.2. Prohibited Conduct
+                Du må ikke:
+            </p>
+            <p>
+                Bruge Tjenesten til ulovlige formål.
+                Krænke andres rettigheder eller intellektuelle ejendom.
+                Manipulere, hacke eller på anden måde beskadige Tjenesten.
+                4. User Content
+                4.1. Ownership of Content
+                Alt indhold, du uploader, sender eller viser via Tjenesten ("Brugerindhold"), forbliver din ejendom, men du giver os en ikke-eksklusiv licens til at bruge, kopiere, modificere og distribuere dit Brugerindhold som led i driften af Tjenesten.
+            </p>
+            <p>
+                4.2. Responsibility for Content
+                Du er eneansvarlig for det indhold, du leverer via Tjenesten. Vi påtager os intet ansvar for tab eller skade forårsaget af dit indhold.
+            </p>
+            <p>
+                5. Intellectual Property
+                5.1. Service Ownership
+                Alle rettigheder, ejerskab og interesser i Tjenesten, herunder, men ikke begrænset til, software, design, tekst og grafik, tilhører os eller vores licensgivere.
+            </p>
+            <p>
+                5.2. Trademark Use
+                Vores navn, logo og andre varemærker er vores ejendom. Du må ikke bruge vores varemærker uden forudgående skriftlig tilladelse.
+            </p>
+            <p>
+                6. Payment and Billing
+                6.1. Pricing
+                Vi forbeholder os retten til at ændre prissætningen for vores tjenester efter eget skøn. Alle priser er angivet i lokal valuta, medmindre andet er angivet.
+            </p>
+            <p>
+                6.2. Refund Policy
+                Køb af tjenester eller produkter kan være underlagt refundering, afhængigt af vores politikker, som kan variere.
+            </p>
+            <p>
+                7. Termination
+                7.1. Termination by Us
+                Vi forbeholder os retten til at suspendere eller opsige din konto, hvis du overtræder disse Vilkår eller på anden måde udviser uacceptabel adfærd.
+            </p>
+            <p>
+                7.2. Termination by You
+                Du kan til enhver tid opsige din konto ved at kontakte os eller ved at lukke din konto gennem dine kontoinstillinger.
+            </p>
+            <p>
+                8. Limitation of Liability
+                8.1. Disclaimer of Warranties
+                Tjenesten leveres "som den er" og uden nogen garanti af nogen art. Vi giver ingen garanti for, at Tjenesten vil være fejlfri eller uafbrudt.
+            </p>
+            <p>
+                8.2. Limitation of Damages
+                Vi er ikke ansvarlige for indirekte, hændelige, følgeskader eller straffende skader, der opstår fra din brug af Tjenesten.
+            </p>
+            <p>
+                9. Governing Law
+                9.1. Jurisdiction
+                Disse Vilkår er underlagt og fortolkes i overensstemmelse med lovgivningen i det land, hvor vi er registreret.
+            </p>
+            <p>
+                9.2. Dispute Resolution
+                Enhver tvist, der opstår under disse Vilkår, skal afgøres ved mægling eller voldgift, medmindre andet er skriftligt aftalt.
+            </p>
+            <p>
+                10. IT GF1
+                Alle drenge og piger skal på data med Gorm fra IT, på egen regning.
+                Tømrer må ikke drikke booster igen i en uge.
+                Alle skal lytte til fodtromme i 1 time.
+            </p>
+        </div>
+        <button class="accept-btn" onclick="acceptpopup()">Accept</button>
+    </div>
+</div>
+</body>
+
+
+
+<footer>
+    <p>&copy; 2024 GF1 News. Alle rettigheder forbeholdes. | <a href="#" style="color:white;">Privatlivspolitik</a></p>
+</footer>
+
+<script>
+    function openPopup() {
+        var tos = localStorage.getItem("TOS");
+        if (tos === "true") {
+            document.getElementById('tosPopup').style.display = 'none';
+        } else {
+            document.getElementById('tosPopup').style.display = 'block';
+        }
+    }
+
+    function acceptpopup() {
+        localStorage.setItem("TOS", "true");
+        document.getElementById('tosPopup').style.display = 'none';
+    }
+
+    function closePopup() {
+        document.getElementById('tosPopup').style.display = 'none';
+    }
+
+    function clearls() {
+        localStorage.setItem("TOS", "false");
+    }
+</script>
+
+</body>
+</html>
